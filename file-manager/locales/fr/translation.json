@@ -1,0 +1,20 @@
+{
+  "welcome": "Bienvenue dans le gestionnaire de fichiers",
+  "login": "Se connecter",
+  "register": "S'inscrire",
+  "logout": "Se déconnecter",
+  "errors": {
+    "invalid_email": "Format de courriel invalide",
+    "password_too_short": "Le mot de passe doit comporter au moins 6 caractères",
+    "user_exists": "L'utilisateur existe déjà",
+    "login_failed": "Échec de la connexion, veuillez vérifier vos identifiants",
+    "no_file_uploaded": "Aucun fichier téléchargé",
+    "error_saving_file_metadata": "Erreur lors de l'enregistrement des métadonnées du fichier"
+
+  },
+  "success": {
+    "registration_successful": "Utilisateur enregistré avec succès",
+    "login_successful": "Connexion réussie",
+    "file_uploaded_successfully": "Fichier téléchargé avec succès"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "welcome": "Welcome to the File Manager",
+  "login": "Login",
+  "register": "Register",
+  "logout": "Logout",
+  "errors": {
+    "invalid_email": "Invalid email format",
+    "password_too_short": "Password must be at least 6 characters",
+    "user_exists": "User already exists",
+    "login_failed": "Login failed, please check your credentials",
+    "no_file_uploaded": "No file uploaded",
+    "error_saving_file_metadata": "Error saving file metadata"
+  },
+  "success": {
+    "registration_successful": "User registered successfully",
+    "login_successful": "Login successful",
+    "file_uploaded_successfully": "File uploaded successfully"
+  }
+}

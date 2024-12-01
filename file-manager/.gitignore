@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for local environment settings
+.env
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build and output directories
+dist/
+build/
+coverage/
+.tmp/
+
+# IDE-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Git-specific files
+.git/
+*.swp
