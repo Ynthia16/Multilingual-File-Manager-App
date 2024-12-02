@@ -1,28 +1,27 @@
-// userController.test.js
-jest.mock('../src/models/userModel', () => ({
-  create: jest.fn().mockResolvedValue({ id: 1, email: 'test@example.com' }),
+const { registerUser } = require('../controllers/userController');
+const User = require('../models/userModel');
+
+jest.mock('../models/userModel', () => ({
+  create: jest.fn()
 }));
 
-const User = require('../models/userModel'); // Import the mocked User model
-const { registerUser } = require('../controllers/userController'); // Controller to test
+describe('registerUser', () => {
+  it('should create a user and respond with status 201', async () => {
+    const req = { body: { email: 'test@example.com', password: 'password123' } };
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn()
+    };
 
-describe('User Controller - registerUser', () => {
-  afterEach(() => {
-    jest.clearAllMocks(); // Clear mock data between tests
-  });
+  
+    User.create.mockResolvedValue({ id: 1, email: 'test@example.com' });
 
-  it('should call User.create with correct data', async () => {
-    const mockReq = { body: { email: 'test@example.com', password: 'password123' } };
-    const mockRes = { json: jest.fn(), status: jest.fn().mockReturnThis() };
+ 
+    await registerUser(req, res);
 
-    await registerUser(mockReq, mockRes);
-
-    expect(User.create).toHaveBeenCalledWith({
-      email: 'test@example.com',
-      password: 'password123', // Assuming hashed password logic is handled in the model
-    });
-    expect(mockRes.json).toHaveBeenCalledWith({
-      message: 'User registered successfully',
-    });
+  
+    expect(User.create).toHaveBeenCalledWith(req.body);
+    expect(res.status).toHaveBeenCalledWith(201);
+    expect(res.json).toHaveBeenCalledWith({ id: 1, email: 'test@example.com' });
   });
 });

@@ -1,10 +1,10 @@
-// ./fileProcessor.js
+
 const fs = require('fs');
 const path = require('path');
 
 async function processFileUpload(file) {
   try {
-    // Example file processing logic
+
     const uploadDir = path.join(__dirname, 'uploads');
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });

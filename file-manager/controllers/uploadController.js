@@ -5,7 +5,7 @@ const uploadProfileImage = (req, res) => {
 
   const filePath = `/uploads/${req.file.filename}`;
 
-  // Example: Save the file path in the user's profile (you can modify this part as per your requirements)
+
   User.findByIdAndUpdate(req.user._id, { profileImage: filePath })
     .then(() => {
       return res.status(200).json({

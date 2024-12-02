@@ -24,11 +24,11 @@ const fileSchema = new mongoose.Schema({
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',  // Associate the file with a user
+    ref: 'User',  
     required: true,
   },
 }, {
-  timestamps: true, // Automatically create `createdAt` and `updatedAt` fields
+  timestamps: true,
 });
 
 // Create the File model

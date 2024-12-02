@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const File = require('./file'); // Import the File model
+const File = require('./file'); 
 
 /**
  * @swagger
@@ -63,14 +63,14 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   profileImagePath: {
-    type: String,  // Storing the profile image path
+    type: String,  
     default: null,
   },
   files: [{ 
     type: mongoose.Schema.Types.ObjectId, 
-    ref: 'File'  // Reference to the File model
+    ref: 'File'  
   }],
-}, { timestamps: true });  // Automatically adds createdAt and updatedAt fields
+}, { timestamps: true }); 
 
 // Hash password before saving user document
 userSchema.pre('save', async function(next) {

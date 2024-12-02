@@ -10,7 +10,7 @@ const File = require('../models/file');
 
 const router = express.Router();
 
-// Ensure uploads directory exists
+
 const uploadDir = path.join(__dirname, '../uploads/');
 fs.mkdir(uploadDir, { recursive: true }).catch((err) => {
   console.error('Error creating upload directory:', err);
@@ -35,7 +35,7 @@ const upload = multer({
     }
     cb(null, true);
   },
-  limits: { fileSize: 2 * 1024 * 1024 }, // Limit file size to 2MB
+  limits: { fileSize: 2 * 1024 * 1024 }, 
 });
 
 /**

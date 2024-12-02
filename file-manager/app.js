@@ -37,7 +37,7 @@ redisClient.on('connect', () => {
 
 redisClient.on('error', (err) => {
   console.error('Redis connection error:', err);
-  process.exit(1); // Exit the process if Redis connection fails
+  process.exit(1); 
 });
 
 // MongoDB Connection
@@ -165,8 +165,8 @@ app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   const user = await user.findOne({ username });
   if (user) {
-    const userLang = user.language || 'en'; // Default language to 'en' if not set
-    res.cookie('i18next', userLang, { maxAge: 900000, httpOnly: true }); // Set language cookie
+    const userLang = user.language || 'en';
+    res.cookie('i18next', userLang, { maxAge: 900000, httpOnly: true }); 
     return res.json({ message: req.t('welcome') });
   }
   res.status(400).json({ message: 'User not found' });

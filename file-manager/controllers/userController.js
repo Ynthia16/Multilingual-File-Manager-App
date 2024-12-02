@@ -70,20 +70,20 @@ const jwt = require('jsonwebtoken');
 
 const registerUser = async (req, res) => {
   try {
-    // Dynamically set language using the Accept-Language header
+
     const language = req.headers['accept-language'] || 'en';
     req.i18n.changeLanguage(language.split(',')[0]);
 
     const { username, email, password } = req.body;
     console.log("Registering user...");
 
-    // Check if user already exists
+   
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ message: req.t('errors.user_exists') });
     }
 
-    // Create and save new user
+  
     const user = new User({
       username,
       email,
@@ -179,10 +179,10 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    // Generate JWT token
+ 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 
-    // Respond with token and user details
+    
     res.json({
       message: 'Login successful',
       token,
